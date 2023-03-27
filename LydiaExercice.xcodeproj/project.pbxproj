@@ -1,0 +1,740 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ADA0973029CF4C6800A688A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0972F29CF4C6800A688A1 /* AppDelegate.swift */; };
+		ADA0973229CF4C6800A688A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0973129CF4C6800A688A1 /* SceneDelegate.swift */; };
+		ADA0973429CF4C6800A688A1 /* UserListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0973329CF4C6800A688A1 /* UserListVC.swift */; };
+		ADA0973A29CF4C6900A688A1 /* LydiaExercice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADA0973829CF4C6800A688A1 /* LydiaExercice.xcdatamodeld */; };
+		ADA0973C29CF4C6E00A688A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADA0973B29CF4C6E00A688A1 /* Assets.xcassets */; };
+		ADA0973F29CF4C6E00A688A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA0973D29CF4C6E00A688A1 /* LaunchScreen.storyboard */; };
+		ADA0974A29CF4C6E00A688A1 /* LydiaExerciceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0974929CF4C6E00A688A1 /* LydiaExerciceTests.swift */; };
+		ADA0975429CF4C6F00A688A1 /* LydiaExerciceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0975329CF4C6F00A688A1 /* LydiaExerciceUITests.swift */; };
+		ADA0975629CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0975529CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift */; };
+		ADA0976529CF4D7B00A688A1 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */; };
+		ADA0976829CF4DD000A688A1 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976729CF4DD000A688A1 /* Endpoints.swift */; };
+		ADA0976A29CF4E1F00A688A1 /* NetworkingServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976929CF4E1F00A688A1 /* NetworkingServiceable.swift */; };
+		ADA0976D29CF4E7E00A688A1 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976C29CF4E7E00A688A1 /* RequestError.swift */; };
+		ADA0977129CF503700A688A1 /* UsersResultCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977029CF503700A688A1 /* UsersResultCodable.swift */; };
+		ADA0977429CF68B900A688A1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977329CF68B900A688A1 /* UIView+Extension.swift */; };
+		ADA0977729CF6A2B00A688A1 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977629CF6A2B00A688A1 /* UserListViewModel.swift */; };
+		ADA0977A29CF6B1D00A688A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977929CF6B1D00A688A1 /* User.swift */; };
+		ADA0977D29CF70D800A688A1 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977C29CF70D800A688A1 /* UserCell.swift */; };
+		ADA0977F29CF847000A688A1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977E29CF847000A688A1 /* UIColor+Extension.swift */; };
+		ADA0978129CF9E2500A688A1 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978029CF9E2500A688A1 /* ImageLoaderView.swift */; };
+		ADA0978329CFB5D700A688A1 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978229CFB5D700A688A1 /* UserDetailsVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ADA0974629CF4C6E00A688A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADA0972429CF4C6800A688A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADA0972B29CF4C6800A688A1;
+			remoteInfo = LydiaExercice;
+		};
+		ADA0975029CF4C6F00A688A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADA0972429CF4C6800A688A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADA0972B29CF4C6800A688A1;
+			remoteInfo = LydiaExercice;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ADA0972C29CF4C6800A688A1 /* LydiaExercice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LydiaExercice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADA0972F29CF4C6800A688A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ADA0973129CF4C6800A688A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ADA0973329CF4C6800A688A1 /* UserListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListVC.swift; sourceTree = "<group>"; };
+		ADA0973929CF4C6800A688A1 /* LydiaExercice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LydiaExercice.xcdatamodel; sourceTree = "<group>"; };
+		ADA0973B29CF4C6E00A688A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADA0973E29CF4C6E00A688A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ADA0974029CF4C6E00A688A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADA0974529CF4C6E00A688A1 /* LydiaExerciceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LydiaExerciceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADA0974929CF4C6E00A688A1 /* LydiaExerciceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceTests.swift; sourceTree = "<group>"; };
+		ADA0974F29CF4C6F00A688A1 /* LydiaExerciceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LydiaExerciceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADA0975329CF4C6F00A688A1 /* LydiaExerciceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceUITests.swift; sourceTree = "<group>"; };
+		ADA0975529CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		ADA0976729CF4DD000A688A1 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		ADA0976929CF4E1F00A688A1 /* NetworkingServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingServiceable.swift; sourceTree = "<group>"; };
+		ADA0976C29CF4E7E00A688A1 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		ADA0977029CF503700A688A1 /* UsersResultCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResultCodable.swift; sourceTree = "<group>"; };
+		ADA0977329CF68B900A688A1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		ADA0977629CF6A2B00A688A1 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		ADA0977929CF6B1D00A688A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ADA0977C29CF70D800A688A1 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		ADA0977E29CF847000A688A1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		ADA0978029CF9E2500A688A1 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
+		ADA0978229CFB5D700A688A1 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADA0972929CF4C6800A688A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADA0974229CF4C6E00A688A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADA0974C29CF4C6F00A688A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ADA0972329CF4C6800A688A1 = {
+			isa = PBXGroup;
+			children = (
+				ADA0972E29CF4C6800A688A1 /* LydiaExercice */,
+				ADA0974829CF4C6E00A688A1 /* LydiaExerciceTests */,
+				ADA0975229CF4C6F00A688A1 /* LydiaExerciceUITests */,
+				ADA0972D29CF4C6800A688A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ADA0972D29CF4C6800A688A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0972C29CF4C6800A688A1 /* LydiaExercice.app */,
+				ADA0974529CF4C6E00A688A1 /* LydiaExerciceTests.xctest */,
+				ADA0974F29CF4C6F00A688A1 /* LydiaExerciceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADA0972E29CF4C6800A688A1 /* LydiaExercice */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0977229CF68A700A688A1 /* Extensions */,
+				ADA0976E29CF4E9200A688A1 /* ViewControllers */,
+				ADA0977B29CF70B100A688A1 /* Views */,
+				ADA0977529CF6A0E00A688A1 /* ViewModels */,
+				ADA0977829CF6B1100A688A1 /* Models */,
+				ADA0976229CF4D1A00A688A1 /* Services */,
+				ADA0972F29CF4C6800A688A1 /* AppDelegate.swift */,
+				ADA0973129CF4C6800A688A1 /* SceneDelegate.swift */,
+				ADA0973B29CF4C6E00A688A1 /* Assets.xcassets */,
+				ADA0973D29CF4C6E00A688A1 /* LaunchScreen.storyboard */,
+				ADA0974029CF4C6E00A688A1 /* Info.plist */,
+				ADA0973829CF4C6800A688A1 /* LydiaExercice.xcdatamodeld */,
+			);
+			path = LydiaExercice;
+			sourceTree = "<group>";
+		};
+		ADA0974829CF4C6E00A688A1 /* LydiaExerciceTests */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0974929CF4C6E00A688A1 /* LydiaExerciceTests.swift */,
+			);
+			path = LydiaExerciceTests;
+			sourceTree = "<group>";
+		};
+		ADA0975229CF4C6F00A688A1 /* LydiaExerciceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0975329CF4C6F00A688A1 /* LydiaExerciceUITests.swift */,
+				ADA0975529CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift */,
+			);
+			path = LydiaExerciceUITests;
+			sourceTree = "<group>";
+		};
+		ADA0976229CF4D1A00A688A1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0976329CF4D2000A688A1 /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		ADA0976329CF4D2000A688A1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0976F29CF4EB400A688A1 /* Codables */,
+				ADA0976B29CF4E7000A688A1 /* Enums */,
+				ADA0976629CF4DC400A688A1 /* Protocols */,
+				ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */,
+				ADA0976929CF4E1F00A688A1 /* NetworkingServiceable.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		ADA0976629CF4DC400A688A1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0976729CF4DD000A688A1 /* Endpoints.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		ADA0976B29CF4E7000A688A1 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0976C29CF4E7E00A688A1 /* RequestError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		ADA0976E29CF4E9200A688A1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0973329CF4C6800A688A1 /* UserListVC.swift */,
+				ADA0978229CFB5D700A688A1 /* UserDetailsVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ADA0976F29CF4EB400A688A1 /* Codables */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0977029CF503700A688A1 /* UsersResultCodable.swift */,
+			);
+			path = Codables;
+			sourceTree = "<group>";
+		};
+		ADA0977229CF68A700A688A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0977329CF68B900A688A1 /* UIView+Extension.swift */,
+				ADA0977E29CF847000A688A1 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADA0977529CF6A0E00A688A1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0977629CF6A2B00A688A1 /* UserListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ADA0977829CF6B1100A688A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0977929CF6B1D00A688A1 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ADA0977B29CF70B100A688A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADA0977C29CF70D800A688A1 /* UserCell.swift */,
+				ADA0978029CF9E2500A688A1 /* ImageLoaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADA0972B29CF4C6800A688A1 /* LydiaExercice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADA0975929CF4C6F00A688A1 /* Build configuration list for PBXNativeTarget "LydiaExercice" */;
+			buildPhases = (
+				ADA0972829CF4C6800A688A1 /* Sources */,
+				ADA0972929CF4C6800A688A1 /* Frameworks */,
+				ADA0972A29CF4C6800A688A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LydiaExercice;
+			productName = LydiaExercice;
+			productReference = ADA0972C29CF4C6800A688A1 /* LydiaExercice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ADA0974429CF4C6E00A688A1 /* LydiaExerciceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADA0975C29CF4C6F00A688A1 /* Build configuration list for PBXNativeTarget "LydiaExerciceTests" */;
+			buildPhases = (
+				ADA0974129CF4C6E00A688A1 /* Sources */,
+				ADA0974229CF4C6E00A688A1 /* Frameworks */,
+				ADA0974329CF4C6E00A688A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADA0974729CF4C6E00A688A1 /* PBXTargetDependency */,
+			);
+			name = LydiaExerciceTests;
+			productName = LydiaExerciceTests;
+			productReference = ADA0974529CF4C6E00A688A1 /* LydiaExerciceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ADA0974E29CF4C6F00A688A1 /* LydiaExerciceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADA0975F29CF4C6F00A688A1 /* Build configuration list for PBXNativeTarget "LydiaExerciceUITests" */;
+			buildPhases = (
+				ADA0974B29CF4C6F00A688A1 /* Sources */,
+				ADA0974C29CF4C6F00A688A1 /* Frameworks */,
+				ADA0974D29CF4C6F00A688A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADA0975129CF4C6F00A688A1 /* PBXTargetDependency */,
+			);
+			name = LydiaExerciceUITests;
+			productName = LydiaExerciceUITests;
+			productReference = ADA0974F29CF4C6F00A688A1 /* LydiaExerciceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADA0972429CF4C6800A688A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					ADA0972B29CF4C6800A688A1 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					ADA0974429CF4C6E00A688A1 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = ADA0972B29CF4C6800A688A1;
+					};
+					ADA0974E29CF4C6F00A688A1 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = ADA0972B29CF4C6800A688A1;
+					};
+				};
+			};
+			buildConfigurationList = ADA0972729CF4C6800A688A1 /* Build configuration list for PBXProject "LydiaExercice" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ADA0972329CF4C6800A688A1;
+			productRefGroup = ADA0972D29CF4C6800A688A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADA0972B29CF4C6800A688A1 /* LydiaExercice */,
+				ADA0974429CF4C6E00A688A1 /* LydiaExerciceTests */,
+				ADA0974E29CF4C6F00A688A1 /* LydiaExerciceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ADA0972A29CF4C6800A688A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA0973F29CF4C6E00A688A1 /* LaunchScreen.storyboard in Resources */,
+				ADA0973C29CF4C6E00A688A1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADA0974329CF4C6E00A688A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADA0974D29CF4C6F00A688A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADA0972829CF4C6800A688A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA0976D29CF4E7E00A688A1 /* RequestError.swift in Sources */,
+				ADA0977D29CF70D800A688A1 /* UserCell.swift in Sources */,
+				ADA0977729CF6A2B00A688A1 /* UserListViewModel.swift in Sources */,
+				ADA0978129CF9E2500A688A1 /* ImageLoaderView.swift in Sources */,
+				ADA0976529CF4D7B00A688A1 /* NetworkingService.swift in Sources */,
+				ADA0973429CF4C6800A688A1 /* UserListVC.swift in Sources */,
+				ADA0973A29CF4C6900A688A1 /* LydiaExercice.xcdatamodeld in Sources */,
+				ADA0973029CF4C6800A688A1 /* AppDelegate.swift in Sources */,
+				ADA0977F29CF847000A688A1 /* UIColor+Extension.swift in Sources */,
+				ADA0977129CF503700A688A1 /* UsersResultCodable.swift in Sources */,
+				ADA0976A29CF4E1F00A688A1 /* NetworkingServiceable.swift in Sources */,
+				ADA0976829CF4DD000A688A1 /* Endpoints.swift in Sources */,
+				ADA0978329CFB5D700A688A1 /* UserDetailsVC.swift in Sources */,
+				ADA0977429CF68B900A688A1 /* UIView+Extension.swift in Sources */,
+				ADA0977A29CF6B1D00A688A1 /* User.swift in Sources */,
+				ADA0973229CF4C6800A688A1 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADA0974129CF4C6E00A688A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA0974A29CF4C6E00A688A1 /* LydiaExerciceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADA0974B29CF4C6F00A688A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADA0975629CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift in Sources */,
+				ADA0975429CF4C6F00A688A1 /* LydiaExerciceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ADA0974729CF4C6E00A688A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADA0972B29CF4C6800A688A1 /* LydiaExercice */;
+			targetProxy = ADA0974629CF4C6E00A688A1 /* PBXContainerItemProxy */;
+		};
+		ADA0975129CF4C6F00A688A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADA0972B29CF4C6800A688A1 /* LydiaExercice */;
+			targetProxy = ADA0975029CF4C6F00A688A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ADA0973D29CF4C6E00A688A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADA0973E29CF4C6E00A688A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ADA0975729CF4C6F00A688A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ADA0975829CF4C6F00A688A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADA0975A29CF4C6F00A688A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B7KQA8289;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LydiaExercice/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KarboVault.LydiaExercice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ADA0975B29CF4C6F00A688A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B7KQA8289;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LydiaExercice/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KarboVault.LydiaExercice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ADA0975D29CF4C6F00A688A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B7KQA8289;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KarboVault.LydiaExerciceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LydiaExercice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LydiaExercice";
+			};
+			name = Debug;
+		};
+		ADA0975E29CF4C6F00A688A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B7KQA8289;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KarboVault.LydiaExerciceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LydiaExercice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LydiaExercice";
+			};
+			name = Release;
+		};
+		ADA0976029CF4C6F00A688A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B7KQA8289;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KarboVault.LydiaExerciceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LydiaExercice;
+			};
+			name = Debug;
+		};
+		ADA0976129CF4C6F00A688A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5B7KQA8289;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = KarboVault.LydiaExerciceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LydiaExercice;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADA0972729CF4C6800A688A1 /* Build configuration list for PBXProject "LydiaExercice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADA0975729CF4C6F00A688A1 /* Debug */,
+				ADA0975829CF4C6F00A688A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADA0975929CF4C6F00A688A1 /* Build configuration list for PBXNativeTarget "LydiaExercice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADA0975A29CF4C6F00A688A1 /* Debug */,
+				ADA0975B29CF4C6F00A688A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADA0975C29CF4C6F00A688A1 /* Build configuration list for PBXNativeTarget "LydiaExerciceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADA0975D29CF4C6F00A688A1 /* Debug */,
+				ADA0975E29CF4C6F00A688A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADA0975F29CF4C6F00A688A1 /* Build configuration list for PBXNativeTarget "LydiaExerciceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADA0976029CF4C6F00A688A1 /* Debug */,
+				ADA0976129CF4C6F00A688A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ADA0973829CF4C6800A688A1 /* LydiaExercice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ADA0973929CF4C6800A688A1 /* LydiaExercice.xcdatamodel */,
+			);
+			currentVersion = ADA0973929CF4C6800A688A1 /* LydiaExercice.xcdatamodel */;
+			path = LydiaExercice.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ADA0972429CF4C6800A688A1 /* Project object */;
+}

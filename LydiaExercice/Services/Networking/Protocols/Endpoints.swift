@@ -1,0 +1,85 @@
+//
+//  Endpoints.swift
+//  LydiaExercice
+//
+//  Created by Karbonyth on 25/03/2023.
+//
+
+import Foundation
+
+var API_HOST = "randomuser.me"
+var API_PATH = "/api/"
+
+protocol Endpoint {
+    var scheme: String { get }
+    var host: String { get }
+    var path: String { get }
+    var method: RequestMethod { get }
+    var header: [String:String]? { get }
+    var body: [String: Any]? { get }
+}
+
+extension Endpoint {
+    var scheme: String {
+        return "https"
+    }
+    
+    var host: String {
+        return API_HOST
+    }
+    
+    var path: String {
+        return API_PATH
+    }
+}
+
+enum RequestMethod: String {
+    case delete = "DELETE"
+    case get = "GET"
+    case patch = "PATCH"
+    case post = "POST"
+    case put = "PUT"
+}
+
+enum Endpoints {
+    case requestUsers(nb: Int)
+    case requestPaginatedUsers(nb: Int, page: Int, seed: String)
+}
+
+extension Endpoints: Endpoint {
+    var header: [String : String]? {
+//        switch self {
+//        case .requestUsers:
+//            return ["Content-Type":"application/json"]
+//        }
+        nil
+    }
+    
+    var body: [String : Any]? {
+        /// Create Extension, customize body for requests, create body codable structs. Not needed here.
+        nil
+    }
+    
+    
+    var queryItems: [URLQueryItem] {
+        switch self {
+        case .requestUsers(let nb):
+            return [URLQueryItem(name: "results", value: String(nb))]
+        case .requestPaginatedUsers(let nb, let page, let seed):
+            return [
+                URLQueryItem(name: "page", value: String(page)),
+                URLQueryItem(name: "results", value: String(nb)),
+                URLQueryItem(name: "seed", value: seed)
+            ]
+        }
+    }
+    
+    var method: RequestMethod {
+        switch self {
+        case    .requestUsers,
+                .requestPaginatedUsers:
+            return .get
+        }
+    }
+}
+
