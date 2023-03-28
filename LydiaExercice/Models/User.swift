@@ -8,48 +8,25 @@
 import UIKit
 
 class User {
-    let name: String
-    var picture: UserPicture
+    let name: UserName
+    let picture: UserPicture
+    let birthInfo: BirthInfo
     
-    
+    // MARK: Init from Codable Model
     init(from model: UserCodable) {
-        self.name = model.name.first
-        self.picture = UserPicture(thumbnailUrl: model.picture.thumbnail,
-                                   mediumUrl: model.picture.medium,
-                                   largeUrl: model.picture.large)
+        self.name = UserName(first: model.name.first,
+                             last: model.name.last,
+                             title: model.name.title)
+        self.picture = UserPicture(url: model.picture.large)
+        self.birthInfo = BirthInfo(date: model.dob.date,
+                                   age: model.dob.age)
     }
     
-    func fetchImage(type: UserPicture.UserPictureType) async {
-        let url: URL?
-        
-        switch type {
-        case .thumbnail:
-            url = URL(string: picture.thumbnailUrl)
-        case .medium:
-            url = URL(string: picture.mediumUrl)
-        case .large:
-            url = URL(string: picture.largeUrl)
-        }
-        
-        guard let url = url else { return }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    switch type {
-                    case .thumbnail:
-                        self.picture.thumbnail = image
-                    case .medium:
-                        self.picture.medium = image
-                    case .large:
-                        self.picture.large = image
-                    }
-                }
-            }
-        } catch {
-            print("Error fetching image: \(error)")
-        }
+    // MARK: Init from raw values
+    init(name: User.UserName, picture: User.UserPicture, birthInfo: User.BirthInfo) {
+        self.name = name
+        self.picture = picture
+        self.birthInfo = birthInfo
     }
 }
 
@@ -59,22 +36,36 @@ extension User {
         let first: String
         let last: String
         let title: String
+        
+        func fullname() -> String {
+            return "\(first) \(last)"
+        }
     }
     
-    struct UserPicture {
+    class UserPicture {
+        private(set) var url: String
+        private(set) var image: UIImage? = nil
         
-        enum UserPictureType {
-            case thumbnail
-            case medium
-            case large
+        init(url: String, image: UIImage? = nil) {
+            self.url = url
+            self.image = image
         }
         
-        let thumbnailUrl: String
-        let mediumUrl: String
-        let largeUrl: String
-        var thumbnail: UIImage? = nil
-        var medium: UIImage? = nil
-        var large: UIImage? = nil
+        func setImage(with image: UIImage) {
+            self.image = image
+        }
+    }
+    
+    struct BirthInfo {
+        let date: Date?
+        let age: Int
+        
+        init(date: String, age: Int) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            self.date = dateFormatter.date(from: date)
+            self.age = age
+        }
     }
     
 }

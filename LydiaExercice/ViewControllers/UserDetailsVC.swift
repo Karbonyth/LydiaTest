@@ -15,7 +15,7 @@ class UserDetailsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = user?.name
+        title = user?.name.fullname() ?? "(userName)"
         view.backgroundColor = .primaryBackground
     }
 

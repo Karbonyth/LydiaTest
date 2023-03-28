@@ -66,21 +66,21 @@ class UserCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 16
         contentView.clipsToBounds = true
         self.imageLoaderView.setSize(CGSize(width: 100, height: 150))
-        nameLabel.text = user.name
+        nameLabel.text = user.name.first
         imageLoaderView.showActivityIndicator()
         
-        if let picture = user.picture.thumbnail {
-            imageLoaderView.showImage(picture)
-        } else {
-            Task {
-                await user.fetchImage(type: .large)
-                if let image = user.picture.large {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.imageLoaderView.showImage(image)
-                    }
-                }
-            }
-        }
-        
+//        if let picture = user.picture.thumbnail {
+//            imageLoaderView.showImage(picture)
+//        } else {
+//            Task {
+//                await user.fetchImage(type: .large)
+//                if let image = user.picture.large {
+//                    DispatchQueue.main.async { [weak self] in
+//                        self?.imageLoaderView.showImage(image)
+//                    }
+//                }
+//            }
+//        }
     }
+    
 }

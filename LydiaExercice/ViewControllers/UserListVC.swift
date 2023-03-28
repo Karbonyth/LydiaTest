@@ -25,13 +25,20 @@ class UserListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Les gens quoi"
+        title = "All the lonely people"
         navigationController?.navigationBar.prefersLargeTitles = true
         userListViewModel.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         setupUI()
-        userListViewModel.fetchUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if userListViewModel.users.count < 20 {
+            userListViewModel.fetchUsers()
+        }
     }
     
     private func setupUI() {
