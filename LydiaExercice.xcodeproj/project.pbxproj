@@ -207,7 +207,6 @@
 		ADA0976329CF4D2000A688A1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				ADA0976F29CF4EB400A688A1 /* Codables */,
 				ADA0976B29CF4E7000A688A1 /* Enums */,
 				ADA0976629CF4DC400A688A1 /* Protocols */,
 				ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */,
@@ -270,6 +269,7 @@
 		ADA0977829CF6B1100A688A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ADA0976F29CF4EB400A688A1 /* Codables */,
 				ADA0977929CF6B1D00A688A1 /* User.swift */,
 				ADA0979929D2A3B300A688A1 /* User+Entity.swift */,
 			);
