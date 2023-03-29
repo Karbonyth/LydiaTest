@@ -16,7 +16,7 @@ protocol Endpoint {
     var path: String { get }
     var method: RequestMethod { get }
     var header: [String:String]? { get }
-    var body: [String: Any]? { get }
+    var body: Codable? { get }
 }
 
 extension Endpoint {
@@ -50,7 +50,7 @@ extension Endpoints: Endpoint {
         nil
     }
     
-    var body: [String : Any]? {
+    var body: Codable? {
         /// Create Extension, customize body for requests, create body codable structs. Not needed here.
         nil
     }

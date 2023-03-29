@@ -34,9 +34,8 @@ extension HTTPClient {
         
         print(request)
         
-        if let body = endpoint.body,
-           !body.isEmpty {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
+        if let body = endpoint.body {
+            request.httpBody = try? JSONEncoder().encode(body)
         }
         
         do {
