@@ -60,7 +60,7 @@ class UserDetailsBoxView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        categoryPicture.roundCorners(corners: [.topLeft, .topRight], radius: 8)
+        categoryPicture.roundCorners(corners: [.topLeft, .topRight], radius: 24)
     }
     
     func addArrangedSubview(_ view: UIView) {
@@ -86,13 +86,13 @@ class UserDetailsBoxView: UIView {
         NSLayoutConstraint.activate([
             categoryPicture.centerXAnchor.constraint(equalTo: centerXAnchor),
             categoryPicture.topAnchor.constraint(equalTo: topAnchor),
-            categoryPicture.widthAnchor.constraint(equalToConstant: 32),
-            categoryPicture.heightAnchor.constraint(equalToConstant: 32),
+            categoryPicture.widthAnchor.constraint(equalToConstant: 48),
+            categoryPicture.heightAnchor.constraint(equalToConstant: 48),
 
             imageView.centerXAnchor.constraint(equalTo: categoryPicture.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: categoryPicture.centerYAnchor),
-            imageView.widthAnchor.constraint(equalTo: categoryPicture.widthAnchor, multiplier: 0.7),
-            imageView.heightAnchor.constraint(equalTo: categoryPicture.heightAnchor, multiplier: 0.7),
+            imageView.widthAnchor.constraint(equalTo: categoryPicture.widthAnchor, multiplier: 0.5),
+            imageView.heightAnchor.constraint(equalTo: categoryPicture.heightAnchor, multiplier: 0.5),
 
             stackView.topAnchor.constraint(equalTo: categoryPicture.bottomAnchor, constant: -2),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),

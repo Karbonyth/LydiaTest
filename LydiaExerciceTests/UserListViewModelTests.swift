@@ -103,6 +103,22 @@ final class UserListViewModelTests: XCTestCase {
         XCTAssertEqual(filteredUsers?.count, 0)
     }
     
+    func testFetchingUsersWithFailure() async throws {
+        let dataSource = TestingUserRemoteFailureDataSource()
+        let expectation = expectation(description: "Remote Fetch Fail")
+        let delegate = TestingDelegate(expectation)
+        let viewModel = UserListViewModel(delegate: delegate, dataSource: dataSource)
+
+        do {
+            viewModel.fetchUsers(fetchType: .fetch(newBatch: true))
+            await waitForExpectations(timeout: 5, handler: nil)
+            let _ = try await dataSource.fetchUsers(page: 0, seed: "")
+            XCTFail("Should have been an error here")
+        } catch let error as RequestError {
+            XCTAssertEqual(error, RequestError.unknown)
+        }
+    }
+    
     class TestingDelegate: UserListDelegate {
         
         let expectation: XCTestExpectation
@@ -112,7 +128,9 @@ final class UserListViewModelTests: XCTestCase {
         }
 
         func willStartFetchingUsers() {}
-        func didFailFetchingUsers(with error: Error) {}
+        func didFailFetchingUsers(with error: Error) {
+            expectation.fulfill()
+        }
         func didFetchUsers(updateType: UserListUpdateType) {
             expectation.fulfill()
         }
@@ -122,11 +140,15 @@ final class UserListViewModelTests: XCTestCase {
     }
     
     class TestingUserRemoteDataSource: UserRemoteDataSource {
-        
         override func fetchUsers(page: Int, seed: String) async throws -> [User] {
             UserListViewModelTests.mockedUsers
         }
-        
+    }
+    
+    class TestingUserRemoteFailureDataSource: UserRemoteDataSource {
+        override func fetchUsers(page: Int, seed: String) async throws -> [User] {
+            throw RequestError.unknown
+        }
     }
     
     static var mockedUser = User(name: User.UserName(first: "Jack",

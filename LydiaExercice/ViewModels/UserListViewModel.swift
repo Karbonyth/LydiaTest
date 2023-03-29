@@ -103,11 +103,18 @@ class UserListViewModel: UserRepository {
         delegate?.didPurgeUsers()
     }
     
-    private func loadInitialUsers() {
+
+
+}
+
+// MARK: Private Logic
+private extension UserListViewModel {
+
+    func loadInitialUsers() {
         self.users += loadUsersFromPersistence()
     }
     
-    private func loadUsersFromRemote(newBatch: Bool) async throws {
+    func loadUsersFromRemote(newBatch: Bool) async throws {
         if newBatch {
             users.removeAll()
             currentPage = 0
@@ -120,7 +127,7 @@ class UserListViewModel: UserRepository {
         saveUsersToPersistence(newUsers: newUsers)
     }
     
-    private func generateRandomSeed() -> String {
+    func generateRandomSeed() -> String {
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         let length = Int.random(in: 3...6)
         var seed = ""
@@ -131,5 +138,4 @@ class UserListViewModel: UserRepository {
         }
         return seed
     }
-
 }
