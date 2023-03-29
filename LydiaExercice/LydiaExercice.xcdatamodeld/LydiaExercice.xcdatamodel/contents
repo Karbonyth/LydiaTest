@@ -5,6 +5,9 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="birthInfo" inverseEntity="UserEntity"/>
     </entity>
+    <entity name="SeedEntity" representedClassName="SeedEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="seed" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="UserContactEntity" representedClassName="UserContactEntity" syncable="YES" codeGenerationType="class">
         <attribute name="homePhone" optional="YES" attributeType="String"/>
         <attribute name="mobilePhone" optional="YES" attributeType="String"/>

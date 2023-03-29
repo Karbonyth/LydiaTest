@@ -76,4 +76,52 @@ extension UserRepository {
             }
         }
     }
+    
+    func saveSeedToPersistence(seed: String) {
+        guard let context = getContext() else { return }
+        
+        context.perform {
+            do {
+                let seedEntity = SeedEntity(context: context)
+                seedEntity.seed = seed
+                try context.save()
+            } catch {
+                print("Error saving seed to Core Data: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func loadSeedFromPersistence() -> String? {
+        guard let context = getContext() else { return nil }
+        
+        return context.performAndWait {
+            let request: NSFetchRequest<SeedEntity> = SeedEntity.fetchRequest()
+            do {
+                let fetchedSeed = try context.fetch(request).first
+                print("Seed loaded from persistence")
+                return fetchedSeed?.seed
+            } catch {
+                return nil
+            }
+        }
+    }
+    
+    func purgeSeedFromPersistence() {
+        guard let context = getContext() else {
+            return
+        }
+        
+        context.perform {
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = SeedEntity.fetchRequest()
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+                print("Seed purged from persistence")
+            } catch {
+                print("Error deleting seed from Core Data: \(error.localizedDescription)")
+            }
+        }
+    }
 }

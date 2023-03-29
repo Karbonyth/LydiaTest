@@ -207,4 +207,7 @@ extension UserRepository {
         [UserListViewModelTests.mockedUser]
     }
     func purgeUsersFromPersistence() {}
+    func saveSeedToPersistence(seed: String) {}
+    func loadSeedFromPersistence() -> String? { return nil }
+    func purgeSeedFromPersistence() {}
 }

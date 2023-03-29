@@ -12,4 +12,7 @@ protocol UserRepository: RepositoryManagement {
     func saveUsersToPersistence(newUsers: [User])
     func loadUsersFromPersistence() -> [User]
     func purgeUsersFromPersistence()
+    func saveSeedToPersistence(seed: String)
+    func loadSeedFromPersistence() -> String?
+    func purgeSeedFromPersistence()
 }

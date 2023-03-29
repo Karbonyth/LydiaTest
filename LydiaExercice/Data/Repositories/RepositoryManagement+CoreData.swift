@@ -5,20 +5,25 @@
 //  Created by Karbonyth on 29/03/2023.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 extension RepositoryManagement {
-    
-    func getContext() -> NSManagedObjectContext? {
-        let container = NSPersistentContainer(name: "LydiaExercice")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
 
-        return container.viewContext
+    func getContext() -> NSManagedObjectContext? {
+        var context: NSManagedObjectContext?
+        
+        if Thread.isMainThread {
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            context = appDelegate?.persistentContainer.viewContext
+        } else {
+            DispatchQueue.main.sync {
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                context = appDelegate?.persistentContainer.viewContext
+            }
+        }
+        
+        return context
     }
     
 }

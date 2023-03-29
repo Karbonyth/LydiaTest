@@ -14,7 +14,6 @@ enum UserListUpdateType {
 }
 
 protocol UserListDelegate: AnyObject {
-    
     func willStartFetchingUsers()
     func didFetchUsers(updateType: UserListUpdateType)
     func didFailFetchingUsers(with error: Error)
@@ -41,7 +40,7 @@ class UserListViewModel: UserRepository {
         self.delegate = delegate
         self.dataSource = dataSource
         self.users = users
-        currentSeed = generateRandomSeed()
+        currentSeed = loadSeedFromPersistence() ?? generateRandomSeed()
     }
     
     func getUserCount(filteredBy text: String = "") -> Int {
@@ -128,6 +127,7 @@ private extension UserListViewModel {
     }
     
     func generateRandomSeed() -> String {
+        purgeSeedFromPersistence()
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         let length = Int.random(in: 3...6)
         var seed = ""
@@ -136,6 +136,8 @@ private extension UserListViewModel {
             let randomLetter = alphabet[alphabet.index(alphabet.startIndex, offsetBy: randomIndex)]
             seed.append(randomLetter)
         }
+        
+        saveSeedToPersistence(seed: seed)
         return seed
     }
 }
