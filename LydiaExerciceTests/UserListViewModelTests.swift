@@ -9,31 +9,98 @@ import XCTest
 import CoreData
 
 final class UserListViewModelTests: XCTestCase {
+    
+    private var viewModel: UserListViewModel?
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewModel = UserListViewModel(dataSource: TestingUserRemoteDataSource())
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
     }
 
-    func testFetchingUsers() throws {
-        let expectation = expectation(description: "Fetching Users")
+    func testInitialFetch() throws {
+        let expectation = expectation(description: "Initial Fetch")
         let delegate = TestingDelegate(expectation)
-        let test = UserListViewModel(delegate: delegate,
-                                     dataSource: TestingUserRemoteDataSource())
+        viewModel?.delegate = delegate
         
-        test.fetchUsers()
+        XCTAssertEqual(viewModel?.getUserCount(), 0)
+        viewModel?.fetchUsers(fetchType: .initial)
         waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertEqual(test.users.count, 1)
+        XCTAssertEqual(viewModel?.getUserCount(), 1)
     }
+    
+    func testFetchingUsers() throws {
+        let expectation = expectation(description: "Remote Fetch")
+        let delegate = TestingDelegate(expectation)
+        viewModel?.delegate = delegate
+        
+        XCTAssertEqual(viewModel?.getUserCount(), 0)
+        viewModel?.fetchUsers(fetchType: .fetch(newBatch: true))
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(viewModel?.getUserCount(), 3)
+    }
+    
+    func testFetchingUsersDifferentBatch() throws {
+        let initialFetchExpectation = expectation(description: "Initial Remote Fetch")
+        let delegate1 = TestingDelegate(initialFetchExpectation)
+        viewModel?.delegate = delegate1
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertEqual(viewModel?.getUserCount(), 0)
+        viewModel?.fetchUsers(fetchType: .fetch(newBatch: true))
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(viewModel?.getUserCount(), 3)
+
+        let secondFetchExpectation = expectation(description: "Second Remote Fetch")
+        let delegate2 = TestingDelegate(secondFetchExpectation)
+        viewModel?.delegate = delegate2
+
+        viewModel?.fetchUsers(fetchType: .fetch(newBatch: true))
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(viewModel?.getUserCount(), 3)
+    }
+    
+    func testFetchingUsersSameBatch() throws {
+        let initialFetchExpectation = expectation(description: "Initial Remote Fetch")
+        let delegate1 = TestingDelegate(initialFetchExpectation)
+        viewModel?.delegate = delegate1
+
+        XCTAssertEqual(viewModel?.getUserCount(), 0)
+        viewModel?.addUser(user: UserListViewModelTests.mockedUser)
+        XCTAssertEqual(viewModel?.getUserCount(), 1)
+        viewModel?.fetchUsers(fetchType: .fetch(newBatch: true))
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(viewModel?.getUserCount(), 3)
+
+        let secondFetchExpectation = expectation(description: "Second Remote Fetch")
+        let delegate2 = TestingDelegate(secondFetchExpectation)
+        viewModel?.delegate = delegate2
+
+        viewModel?.fetchUsers(fetchType: .fetch(newBatch: false))
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(viewModel?.getUserCount(), 6)
+    }
+    
+    func testPurgingUsers() throws {
+        let expectation = expectation(description: "Purging Users")
+        let delegate = TestingDelegate(expectation)
+        viewModel?.delegate = delegate
+
+        XCTAssertEqual(viewModel?.getUserCount(), 0)
+        viewModel?.addUser(user: UserListViewModelTests.mockedUser)
+        XCTAssertEqual(viewModel?.getUserCount(), 1)
+        viewModel?.purgeData()
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(viewModel?.getUserCount(), 0)
+    }
+    
+    func testGettingFilteredUsers() throws {
+        viewModel?.addUser(user: UserListViewModelTests.mockedUser)
+        let unfilteredUsers = viewModel?.getUsers()
+        XCTAssertEqual(unfilteredUsers?.count, 1)
+        let filteredUsers = viewModel?.getUsers(filteredBy: "qwerty")
+        XCTAssertEqual(filteredUsers?.count, 0)
     }
     
     class TestingDelegate: UserListDelegate {
@@ -46,12 +113,12 @@ final class UserListViewModelTests: XCTestCase {
 
         func willStartFetchingUsers() {}
         func didFailFetchingUsers(with error: Error) {}
-        func didFinishFetchingUsers() {
+        func didFetchUsers(updateType: UserListUpdateType) {
             expectation.fulfill()
         }
-        func didFinishLoadedInitialUsers() {}
-        func didFinishFilteringUsers() {}
-        func didPurgeUsers() {}
+        func didPurgeUsers() {
+            expectation.fulfill()
+        }
     }
     
     class TestingUserRemoteDataSource: UserRemoteDataSource {
@@ -62,20 +129,60 @@ final class UserListViewModelTests: XCTestCase {
         
     }
     
+    static var mockedUser = User(name: User.UserName(first: "Jack",
+                                                     last: "Black",
+                                                     title: "Mister"),
+                                 gender: .male,
+                                 picture: User.UserPicture(url: ""),
+                                 birthInfo: User.BirthInfo(date: "",
+                                                           age: 32),
+                                 contactInfo: User.ContactInfo(homePhone: "666",
+                                                               mobilePhone: "777"))
+    
     static var mockedUsers = [
         User(name: User.UserName(first: "Jack",
                                  last: "Black",
                                  title: "Mister"),
+             gender: .male,
              picture: User.UserPicture(url: ""),
              birthInfo: User.BirthInfo(date: "",
-                                       age: 32))
+                                       age: 32),
+             contactInfo: User.ContactInfo(homePhone: "666",
+                                           mobilePhone: "777")),
+        User(name: User.UserName(first: "Jack",
+                                 last: "Black",
+                                 title: "Mister"),
+             gender: .male,
+             picture: User.UserPicture(url: ""),
+             birthInfo: User.BirthInfo(date: "",
+                                       age: 32),
+             contactInfo: User.ContactInfo(homePhone: "666",
+                                           mobilePhone: "777")),
+        User(name: User.UserName(first: "Jack",
+                                 last: "Black",
+                                 title: "Mister"),
+             gender: .male,
+             picture: User.UserPicture(url: ""),
+             birthInfo: User.BirthInfo(date: "",
+                                       age: 32),
+             contactInfo: User.ContactInfo(homePhone: "666",
+                                           mobilePhone: "777"))
     ]
     
 }
 
-// MARK: Mock UserRepository Implementation
+// MARK: Mock Repository Implementation
+
+extension RepositoryManagement {
+    func getContext() -> NSManagedObjectContext? {
+        nil
+    }
+}
+
 extension UserRepository {
     func saveUsersToPersistence(newUsers: [User]) {}
-    func loadUsersFromPersistence() -> [User] { [] }
+    func loadUsersFromPersistence() -> [User] {
+        [UserListViewModelTests.mockedUser]
+    }
     func purgeUsersFromPersistence() {}
 }

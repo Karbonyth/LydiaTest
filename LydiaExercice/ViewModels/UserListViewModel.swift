@@ -33,17 +33,6 @@ class UserListViewModel: UserRepository {
     
     private var searchText: String = ""
     
-    lazy var context: NSManagedObjectContext = {
-        let container = NSPersistentContainer(name: "LydiaExercice")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container.viewContext
-    }()
-    
-    private(set) static var container: NSPersistentContainer?
     weak var delegate: UserListDelegate?
     
     init(delegate: UserListDelegate? = nil,
@@ -75,6 +64,10 @@ class UserListViewModel: UserRepository {
         }
     }
     
+    func addUser(user: User) {
+        users.append(user)
+    }
+    
     func setSearchFilter(with text: String) {
         searchText = text
     }
@@ -104,18 +97,19 @@ class UserListViewModel: UserRepository {
     }
     
     func purgeData() {
-        purgeUsersFromPersistence(context: getContext()) { [weak self] in
-            self?.users.removeAll()
-            self?.delegate?.didPurgeUsers()
-        }
+        users.removeAll()
+
+        purgeUsersFromPersistence()
+        delegate?.didPurgeUsers()
     }
     
     private func loadInitialUsers() {
-        self.users += loadUsersFromPersistence(context: getContext())
+        self.users += loadUsersFromPersistence()
     }
     
     private func loadUsersFromRemote(newBatch: Bool) async throws {
         if newBatch {
+            users.removeAll()
             currentPage = 0
             currentSeed = generateRandomSeed()
         }
@@ -123,8 +117,7 @@ class UserListViewModel: UserRepository {
         let newUsers = try await dataSource.fetchUsers(page: currentPage, seed: currentSeed)
         users += newUsers
         self.fetchedUsersCount = newUsers.count
-        saveUsersToPersistence(newUsers: newUsers, context: getContext())
-        delegate?.didFetchUsers(updateType: .fetch(newBatch: newBatch))
+        saveUsersToPersistence(newUsers: newUsers)
     }
     
     private func generateRandomSeed() -> String {
@@ -138,21 +131,5 @@ class UserListViewModel: UserRepository {
         }
         return seed
     }
-    
-    // TODO: Temporary, don't create the container here. Needs fancy injection
-    private func getContext() -> NSManagedObjectContext? {
-        if let context = UserListViewModel.container?.viewContext {
-            return context
-        }
 
-        let container = NSPersistentContainer(name: "LydiaExercice")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-
-        UserListViewModel.container = container
-        return container.viewContext
-    }
 }

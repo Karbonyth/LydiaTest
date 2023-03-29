@@ -13,7 +13,6 @@
 		ADA0973A29CF4C6900A688A1 /* LydiaExercice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADA0973829CF4C6800A688A1 /* LydiaExercice.xcdatamodeld */; };
 		ADA0973C29CF4C6E00A688A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADA0973B29CF4C6E00A688A1 /* Assets.xcassets */; };
 		ADA0973F29CF4C6E00A688A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA0973D29CF4C6E00A688A1 /* LaunchScreen.storyboard */; };
-		ADA0974A29CF4C6E00A688A1 /* LydiaExerciceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0974929CF4C6E00A688A1 /* LydiaExerciceTests.swift */; };
 		ADA0975429CF4C6F00A688A1 /* LydiaExerciceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0975329CF4C6F00A688A1 /* LydiaExerciceUITests.swift */; };
 		ADA0975629CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0975529CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift */; };
 		ADA0976529CF4D7B00A688A1 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */; };
@@ -46,6 +45,11 @@
 		ADA097A129D4902D00A688A1 /* UserDetailsBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097A029D4902D00A688A1 /* UserDetailsBoxView.swift */; };
 		ADA097A329D49D0600A688A1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097A229D49D0600A688A1 /* String+Extension.swift */; };
 		ADA097A729D49E2F00A688A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ADA097A929D49E2F00A688A1 /* Localizable.strings */; };
+		ADA097AD29D4ADA000A688A1 /* RepositoryManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */; };
+		ADA097AF29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AE29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift */; };
+		ADA097B029D4AEAA00A688A1 /* RepositoryManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */; };
+		ADA097B229D4B75C00A688A1 /* UserResultCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097B129D4B75C00A688A1 /* UserResultCodableTests.swift */; };
+		ADA097B429D4BA4D00A688A1 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = ADA097B329D4BA4D00A688A1 /* TestData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +79,6 @@
 		ADA0973E29CF4C6E00A688A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADA0974029CF4C6E00A688A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADA0974529CF4C6E00A688A1 /* LydiaExerciceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LydiaExerciceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADA0974929CF4C6E00A688A1 /* LydiaExerciceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceTests.swift; sourceTree = "<group>"; };
 		ADA0974F29CF4C6F00A688A1 /* LydiaExerciceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LydiaExerciceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA0975329CF4C6F00A688A1 /* LydiaExerciceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceUITests.swift; sourceTree = "<group>"; };
 		ADA0975529CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -102,6 +105,10 @@
 		ADA097A429D49DF700A688A1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ADA097AA29D49E3100A688A1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ADA097AB29D49EBD00A688A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManagement.swift; sourceTree = "<group>"; };
+		ADA097AE29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryManagement+CoreData.swift"; sourceTree = "<group>"; };
+		ADA097B129D4B75C00A688A1 /* UserResultCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResultCodableTests.swift; sourceTree = "<group>"; };
+		ADA097B329D4BA4D00A688A1 /* TestData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +180,9 @@
 		ADA0974829CF4C6E00A688A1 /* LydiaExerciceTests */ = {
 			isa = PBXGroup;
 			children = (
-				ADA0974929CF4C6E00A688A1 /* LydiaExerciceTests.swift */,
+				ADA097B529D4C01600A688A1 /* TestRessources */,
 				ADA0978929D29A2200A688A1 /* UserListViewModelTests.swift */,
+				ADA097B129D4B75C00A688A1 /* UserResultCodableTests.swift */,
 			);
 			path = LydiaExerciceTests;
 			sourceTree = "<group>";
@@ -282,6 +290,8 @@
 		ADA0978629D2936B00A688A1 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */,
+				ADA097AE29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift */,
 				ADA0978729D2937B00A688A1 /* UserRepository.swift */,
 				ADA0979B29D2A57500A688A1 /* UserRepository+CoreData.swift */,
 			);
@@ -303,6 +313,14 @@
 				ADA0979229D29CAF00A688A1 /* UserRemoteDataSource.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		ADA097B529D4C01600A688A1 /* TestRessources */ = {
+			isa = PBXGroup;
+			children = (
+				ADA097B329D4BA4D00A688A1 /* TestData.json */,
+			);
+			path = TestRessources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA097B429D4BA4D00A688A1 /* TestData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,11 +461,13 @@
 				ADA0977729CF6A2B00A688A1 /* UserListViewModel.swift in Sources */,
 				ADA0979329D29CAF00A688A1 /* UserRemoteDataSource.swift in Sources */,
 				ADA0978129CF9E2500A688A1 /* ImageLoaderView.swift in Sources */,
+				ADA097AF29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift in Sources */,
 				ADA0976529CF4D7B00A688A1 /* NetworkingService.swift in Sources */,
 				ADA097A129D4902D00A688A1 /* UserDetailsBoxView.swift in Sources */,
 				ADA0973429CF4C6800A688A1 /* UserListVC.swift in Sources */,
 				ADA0978829D2937B00A688A1 /* UserRepository.swift in Sources */,
 				ADA0973A29CF4C6900A688A1 /* LydiaExercice.xcdatamodeld in Sources */,
+				ADA097AD29D4ADA000A688A1 /* RepositoryManagement.swift in Sources */,
 				ADA0973029CF4C6800A688A1 /* AppDelegate.swift in Sources */,
 				ADA0977F29CF847000A688A1 /* UIColor+Extension.swift in Sources */,
 				ADA097A329D49D0600A688A1 /* String+Extension.swift in Sources */,
@@ -469,14 +490,15 @@
 			files = (
 				ADA0979D29D2A58F00A688A1 /* UserRepository.swift in Sources */,
 				ADA0978C29D29A4C00A688A1 /* User.swift in Sources */,
-				ADA0974A29CF4C6E00A688A1 /* LydiaExerciceTests.swift in Sources */,
 				ADA0979529D29F3400A688A1 /* UsersResultCodable.swift in Sources */,
+				ADA097B229D4B75C00A688A1 /* UserResultCodableTests.swift in Sources */,
 				ADA0978B29D29A4600A688A1 /* UserListViewModel.swift in Sources */,
 				ADA0979629D2A0CC00A688A1 /* Endpoints.swift in Sources */,
 				ADA0979429D29E6C00A688A1 /* UserRemoteDataSource.swift in Sources */,
 				ADA0979829D2A0F100A688A1 /* RequestError.swift in Sources */,
 				ADA0978E29D29B9D00A688A1 /* NetworkingService.swift in Sources */,
 				ADA0978A29D29A2200A688A1 /* UserListViewModelTests.swift in Sources */,
+				ADA097B029D4AEAA00A688A1 /* RepositoryManagement.swift in Sources */,
 				ADA0978D29D29B9B00A688A1 /* NetworkingServiceable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

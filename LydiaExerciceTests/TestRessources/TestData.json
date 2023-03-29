@@ -1,0 +1,66 @@
+{
+    "results": [
+        {
+            "gender": "male",
+            "name": {
+                "title": "Mr",
+                "first": "John",
+                "last": "Doe"
+            },
+            "location": {
+                "street": {
+                    "number": 123,
+                    "name": "Main St"
+                },
+                "city": "New York",
+                "state": "NY",
+                "country": "United States",
+                "postcode": "10001",
+                "coordinates": {
+                    "latitude": "40.7128",
+                    "longitude": "74.0060"
+                },
+                "timezone": {
+                    "offset": "-5:00",
+                    "description": "Eastern Time"
+                }
+            },
+            "email": "john.doe@example.com",
+            "login": {
+                "uuid": "1234567890",
+                "username": "johndoe",
+                "password": "password",
+                "salt": "salt",
+                "md5": "md5hash",
+                "sha1": "sha1hash",
+                "sha256": "sha256hash"
+            },
+            "dob": {
+                "date": "1990-01-01T00:00:00Z",
+                "age": 33
+            },
+            "registered": {
+                "date": "2020-01-01T00:00:00Z",
+                "age": 3
+            },
+            "phone": "555-555-5555",
+            "cell": "555-555-5555",
+            "id": {
+                "name": "SSN",
+                "value": "123-45-6789"
+            },
+            "picture": {
+                "large": "https://large.example.com",
+                "medium": "https://medium.example.com",
+                "thumbnail": "https://thumbnail.example.com"
+            },
+            "nat": "US"
+        }
+    ],
+    "info": {
+        "seed": "abcdef",
+        "results": 1,
+        "page": 1,
+        "version": "1.0"
+    }
+}

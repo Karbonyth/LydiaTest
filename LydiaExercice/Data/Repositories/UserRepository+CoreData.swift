@@ -9,19 +9,9 @@ import Foundation
 import CoreData
 
 extension UserRepository {
-    
-    private func getContext() -> NSManagedObjectContext? {
-        let container = NSPersistentContainer(name: "LydiaExercice")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container.viewContext
-    }
 
-    func saveUsersToPersistence(newUsers: [User], context: NSManagedObjectContext?) {
-        guard let context = context else { return }
+    func saveUsersToPersistence(newUsers: [User]) {
+        guard let context = getContext() else { return }
         
         context.perform {
             do {
@@ -52,8 +42,8 @@ extension UserRepository {
         }
     }
     
-    func loadUsersFromPersistence(context: NSManagedObjectContext?) -> [User] {
-        guard let context = context else { return [] }
+    func loadUsersFromPersistence() -> [User] {
+        guard let context = getContext() else { return [] }
         
         return context.performAndWait {
             let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
@@ -68,8 +58,10 @@ extension UserRepository {
         }
     }
     
-    func purgeUsersFromPersistence(context: NSManagedObjectContext?, completion: @escaping () -> Void) {
-        guard let context = context else { return }
+    func purgeUsersFromPersistence() {
+        guard let context = getContext() else {
+            return
+        }
         
         context.perform {
             let fetchRequest: NSFetchRequest<NSFetchRequestResult> = UserEntity.fetchRequest()
@@ -79,10 +71,8 @@ extension UserRepository {
                 try context.execute(deleteRequest)
                 try context.save()
                 print("Users purged from persistence")
-                completion()
             } catch {
                 print("Error deleting users from Core Data: \(error.localizedDescription)")
-                completion()
             }
         }
     }
