@@ -28,7 +28,6 @@
 		ADA0977F29CF847000A688A1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977E29CF847000A688A1 /* UIColor+Extension.swift */; };
 		ADA0978129CF9E2500A688A1 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978029CF9E2500A688A1 /* ImageLoaderView.swift */; };
 		ADA0978329CFB5D700A688A1 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978229CFB5D700A688A1 /* UserDetailsVC.swift */; };
-		ADA0978529D25CF000A688A1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ADA0978429D25CF000A688A1 /* .gitignore */; };
 		ADA0978829D2937B00A688A1 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978729D2937B00A688A1 /* UserRepository.swift */; };
 		ADA0978A29D29A2200A688A1 /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978929D29A2200A688A1 /* UserListViewModelTests.swift */; };
 		ADA0978B29D29A4600A688A1 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977629CF6A2B00A688A1 /* UserListViewModel.swift */; };
@@ -92,7 +91,6 @@
 		ADA0977E29CF847000A688A1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		ADA0978029CF9E2500A688A1 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
 		ADA0978229CFB5D700A688A1 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
-		ADA0978429D25CF000A688A1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		ADA0978729D2937B00A688A1 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		ADA0978929D29A2200A688A1 /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
 		ADA0979229D29CAF00A688A1 /* UserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSource.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		ADA0972329CF4C6800A688A1 = {
 			isa = PBXGroup;
 			children = (
-				ADA0978429D25CF000A688A1 /* .gitignore */,
 				ADA0972E29CF4C6800A688A1 /* LydiaExercice */,
 				ADA0974829CF4C6E00A688A1 /* LydiaExerciceTests */,
 				ADA0975229CF4C6F00A688A1 /* LydiaExerciceUITests */,
@@ -415,7 +412,6 @@
 			files = (
 				ADA0973F29CF4C6E00A688A1 /* LaunchScreen.storyboard in Resources */,
 				ADA097A729D49E2F00A688A1 /* Localizable.strings in Resources */,
-				ADA0978529D25CF000A688A1 /* .gitignore in Resources */,
 				ADA0973C29CF4C6E00A688A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
