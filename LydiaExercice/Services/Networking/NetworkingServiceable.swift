@@ -8,19 +8,10 @@
 import Foundation
 
 protocol APIServiceable {
-    func requestRandomUser(nb: Int) async throws -> UsersRequestCodable
     func requestPaginatedUsers(nb: Int, page: Int, seed: String) async throws -> UsersRequestCodable
 }
 
 struct APIService: HTTPClient, APIServiceable {
-
-    func requestRandomUser(nb: Int) async throws -> UsersRequestCodable {
-        do {
-            return try await sendRequest(endpoint: .requestUsers(nb: nb), responseModel: UsersRequestCodable.self)
-        } catch let error {
-            throw error
-        }
-    }
     
     func requestPaginatedUsers(nb: Int, page: Int, seed: String) async throws -> UsersRequestCodable {
         do {

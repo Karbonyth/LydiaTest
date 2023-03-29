@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  LydiaExercice
+
+  Created by Karbonyth on 29/03/2023.
+  
+*/
+
+"mainScreenTitle" = "So much people";
+"searchBarPlaceholder" = "Search for a name";
+"dataPurgeButtonTitle" = "Delete all data";
+
+"Male" = "Male";
+"Female" = "Female";
+
+"ageUnit" = "years old";
+
+"tryAgainButtonTitle" = "Try again";

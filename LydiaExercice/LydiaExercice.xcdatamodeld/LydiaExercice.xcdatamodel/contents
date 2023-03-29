@@ -5,8 +5,15 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="birthInfo" inverseEntity="UserEntity"/>
     </entity>
+    <entity name="UserContactEntity" representedClassName="UserContactEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="homePhone" optional="YES" attributeType="String"/>
+        <attribute name="mobilePhone" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="contactInfo" inverseEntity="UserEntity"/>
+    </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="gender" optional="YES" attributeType="String"/>
         <relationship name="birthInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BirthInfoEntity" inverseName="user" inverseEntity="BirthInfoEntity"/>
+        <relationship name="contactInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserContactEntity" inverseName="user" inverseEntity="UserContactEntity"/>
         <relationship name="name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserNameEntity" inverseName="user" inverseEntity="UserNameEntity"/>
         <relationship name="picture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserPictureEntity" inverseName="user" inverseEntity="UserPictureEntity"/>
     </entity>

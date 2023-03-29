@@ -27,7 +27,6 @@ class UserCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        //label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textAlignment = .center
         label.textColor = .primaryText
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -69,18 +68,18 @@ class UserCell: UICollectionViewCell {
         nameLabel.text = user.name.first
         imageLoaderView.showActivityIndicator()
         
-//        if let picture = user.picture.thumbnail {
-//            imageLoaderView.showImage(picture)
-//        } else {
-//            Task {
-//                await user.fetchImage(type: .large)
-//                if let image = user.picture.large {
-//                    DispatchQueue.main.async { [weak self] in
-//                        self?.imageLoaderView.showImage(image)
-//                    }
-//                }
-//            }
-//        }
+        if let picture = user.picture.image {
+            imageLoaderView.showImage(picture)
+        } else {
+            Task {
+                await user.fetchImage()
+                if let image = user.picture.image {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.imageLoaderView.showImage(image)
+                    }
+                }
+            }
+        }
     }
     
 }

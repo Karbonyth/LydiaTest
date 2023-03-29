@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 protocol UserRepository: AnyObject {
-    func saveUsers(newUsers: [User])
-    func loadUsers() -> [User]
+    func saveUsersToPersistence(newUsers: [User], context: NSManagedObjectContext?)
+    func loadUsersFromPersistence(context: NSManagedObjectContext?) -> [User]
+    func purgeUsersFromPersistence(context: NSManagedObjectContext?, completion: @escaping () -> Void)
 }

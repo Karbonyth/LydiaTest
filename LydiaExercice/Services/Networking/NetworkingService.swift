@@ -46,7 +46,6 @@ extension HTTPClient {
             }
             switch response.statusCode {
             case 200...299:
-                print(String(data: data, encoding: .utf8) ?? "Unable to convert data to string")
                 let decodedResponse = try JSONDecoder().decode(responseModel, from: data)
                 return decodedResponse
             case 401:

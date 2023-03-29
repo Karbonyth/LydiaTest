@@ -8,21 +8,30 @@
 import UIKit
 import CoreData
 
+enum UserListUpdateType {
+    case initial
+    case fetch(newBatch: Bool)
+}
+
 protocol UserListDelegate: AnyObject {
+    
     func willStartFetchingUsers()
-    func didFinishFetchingUsers()
+    func didFetchUsers(updateType: UserListUpdateType)
     func didFailFetchingUsers(with error: Error)
+    func didPurgeUsers()
 }
 
 class UserListViewModel: UserRepository {
     
     private let dataSource: UserRemoteDataSource
-    private(set) var users: [User]
+    private var users: [User]
     private var currentPage = 0
     private var currentSeed = ""
     private var initialLoad = true
     private(set) var isFetchingUsers = false
     private(set) var fetchedUsersCount: Int = 0
+    
+    private var searchText: String = ""
     
     lazy var context: NSManagedObjectContext = {
         let container = NSPersistentContainer(name: "LydiaExercice")
@@ -34,6 +43,7 @@ class UserListViewModel: UserRepository {
         return container.viewContext
     }()
     
+    private(set) static var container: NSPersistentContainer?
     weak var delegate: UserListDelegate?
     
     init(delegate: UserListDelegate? = nil,
@@ -42,28 +52,79 @@ class UserListViewModel: UserRepository {
         self.delegate = delegate
         self.dataSource = dataSource
         self.users = users
-        self.users += loadUsers()
         currentSeed = generateRandomSeed()
     }
     
-    func fetchUsers() {
-        guard !isFetchingUsers else { return }
-        isFetchingUsers = true
-        
-        delegate?.willStartFetchingUsers()
-        Task {
-            do {
-                self.currentPage += 1
-                let newUsers = try await dataSource.fetchUsers(page: currentPage, seed: currentSeed)
-                users += newUsers
-                self.fetchedUsersCount = newUsers.count
-                saveUsers(newUsers: newUsers)
-                self.delegate?.didFinishFetchingUsers()
-            } catch let error {
-                self.delegate?.didFailFetchingUsers(with: error)
-            }
-            self.isFetchingUsers = false
+    func getUserCount(filteredBy text: String = "") -> Int {
+        if text.isEmpty {
+            return users.count
+        } else {
+            return getUsers(filteredBy: text).count
         }
+    }
+    
+    func getUser(at index: Int) -> User {
+        getUsers(filteredBy: searchText)[index]
+    }
+    
+    func getUsers(filteredBy text: String = "") -> [User] {
+        if text.isEmpty {
+            return users
+        } else {
+            return users.filter( {$0.name.first.lowercased().contains(text.lowercased())} )
+        }
+    }
+    
+    func setSearchFilter(with text: String) {
+        searchText = text
+    }
+    
+    func fetchUsers(fetchType: UserListUpdateType) {
+        switch fetchType {
+        case .initial:
+            loadInitialUsers()
+            delegate?.didFetchUsers(updateType: .initial)
+            
+        case .fetch(let newBatch):
+            guard !isFetchingUsers else { return }
+            delegate?.willStartFetchingUsers()
+            Task {
+                do {
+                    self.isFetchingUsers = true
+                    try await loadUsersFromRemote(newBatch: newBatch)
+                    self.isFetchingUsers = false
+                    delegate?.didFetchUsers(updateType: .fetch(newBatch: newBatch))
+                } catch let error {
+                    self.isFetchingUsers = false
+                    self.delegate?.didFailFetchingUsers(with: error)
+                }
+            }
+
+        }
+    }
+    
+    func purgeData() {
+        purgeUsersFromPersistence(context: getContext()) { [weak self] in
+            self?.users.removeAll()
+            self?.delegate?.didPurgeUsers()
+        }
+    }
+    
+    private func loadInitialUsers() {
+        self.users += loadUsersFromPersistence(context: getContext())
+    }
+    
+    private func loadUsersFromRemote(newBatch: Bool) async throws {
+        if newBatch {
+            currentPage = 0
+            currentSeed = generateRandomSeed()
+        }
+        self.currentPage += 1
+        let newUsers = try await dataSource.fetchUsers(page: currentPage, seed: currentSeed)
+        users += newUsers
+        self.fetchedUsersCount = newUsers.count
+        saveUsersToPersistence(newUsers: newUsers, context: getContext())
+        delegate?.didFetchUsers(updateType: .fetch(newBatch: newBatch))
     }
     
     private func generateRandomSeed() -> String {
@@ -76,5 +137,22 @@ class UserListViewModel: UserRepository {
             seed.append(randomLetter)
         }
         return seed
+    }
+    
+    // TODO: Temporary, don't create the container here. Needs fancy injection
+    private func getContext() -> NSManagedObjectContext? {
+        if let context = UserListViewModel.container?.viewContext {
+            return context
+        }
+
+        let container = NSPersistentContainer(name: "LydiaExercice")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+
+        UserListViewModel.container = container
+        return container.viewContext
     }
 }

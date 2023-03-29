@@ -14,16 +14,21 @@ extension User {
                             last: entity.name?.last ?? "",
                             title: entity.name?.title ?? "")
         
+        let gender = Gender(rawValue: entity.gender ?? "") ?? .Unknown
+        
         let picture = UserPicture(url: entity.picture?.url ?? "")
         if let data = entity.picture?.image,
            let image = UIImage(data: data) {
             picture.setImage(with: image)
         }
         
-        let birthInfo = BirthInfo(date: entity.birthInfo?.date?.ISO8601Format() ?? "",
+        let birthInfo = BirthInfo(date: entity.birthInfo?.date ?? nil,
                                   age: Int(entity.birthInfo?.age ?? 0))
         
-        self.init(name: name, picture: picture, birthInfo: birthInfo)
+        let contactInfo = ContactInfo(homePhone: entity.contactInfo?.homePhone ?? "",
+                                      mobilePhone: entity.contactInfo?.mobilePhone ?? "")
+        
+        self.init(name: name, gender: gender, picture: picture, birthInfo: birthInfo, contactInfo: contactInfo)
     }
 
 }

@@ -42,16 +42,11 @@ enum RequestMethod: String {
 }
 
 enum Endpoints {
-    case requestUsers(nb: Int)
     case requestPaginatedUsers(nb: Int, page: Int, seed: String)
 }
 
 extension Endpoints: Endpoint {
     var header: [String : String]? {
-//        switch self {
-//        case .requestUsers:
-//            return ["Content-Type":"application/json"]
-//        }
         nil
     }
     
@@ -63,8 +58,6 @@ extension Endpoints: Endpoint {
     
     var queryItems: [URLQueryItem] {
         switch self {
-        case .requestUsers(let nb):
-            return [URLQueryItem(name: "results", value: String(nb))]
         case .requestPaginatedUsers(let nb, let page, let seed):
             return [
                 URLQueryItem(name: "page", value: String(page)),
@@ -76,8 +69,7 @@ extension Endpoints: Endpoint {
     
     var method: RequestMethod {
         switch self {
-        case    .requestUsers,
-                .requestPaginatedUsers:
+        case .requestPaginatedUsers:
             return .get
         }
     }

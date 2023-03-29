@@ -49,6 +49,9 @@ final class UserListViewModelTests: XCTestCase {
         func didFinishFetchingUsers() {
             expectation.fulfill()
         }
+        func didFinishLoadedInitialUsers() {}
+        func didFinishFilteringUsers() {}
+        func didPurgeUsers() {}
     }
     
     class TestingUserRemoteDataSource: UserRemoteDataSource {
@@ -72,6 +75,7 @@ final class UserListViewModelTests: XCTestCase {
 
 // MARK: Mock UserRepository Implementation
 extension UserRepository {
-    func saveUsers(newUsers: [User]) { }
-    func loadUsers() -> [User] { [] }
+    func saveUsersToPersistence(newUsers: [User]) {}
+    func loadUsersFromPersistence() -> [User] { [] }
+    func purgeUsersFromPersistence() {}
 }
