@@ -17,6 +17,7 @@ protocol Endpoint {
     var method: RequestMethod { get }
     var header: [String:String]? { get }
     var body: Codable? { get }
+    var queryItems: [URLQueryItem] { get }
 }
 
 extension Endpoint {
