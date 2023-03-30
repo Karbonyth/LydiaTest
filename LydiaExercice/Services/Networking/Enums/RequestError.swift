@@ -2,7 +2,7 @@
 //  RequestError.swift
 //  LydiaExercice
 //
-//  Created by Karbonyth on 25/03/2023.
+//  Created by Stephen Sement on 25/03/2023.
 //
 
 import Foundation

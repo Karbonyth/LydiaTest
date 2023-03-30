@@ -2,7 +2,7 @@
 //  UserRepository+CoreData.swift
 //  LydiaExercice
 //
-//  Created by Karbonyth on 28/03/2023.
+//  Created by Stephen Sement on 28/03/2023.
 //
 
 import Foundation

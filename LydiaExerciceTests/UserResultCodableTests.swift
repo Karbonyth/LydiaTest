@@ -2,7 +2,7 @@
 //  UserResultCodableTests.swift
 //  LydiaExerciceTests
 //
-//  Created by Karbonyth on 29/03/2023.
+//  Created by Stephen Sement on 29/03/2023.
 //
 
 import XCTest

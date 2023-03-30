@@ -2,7 +2,7 @@
 //  String+Extension.swift
 //  LydiaExercice
 //
-//  Created by Karbonyth on 29/03/2023.
+//  Created by Stephen Sement on 29/03/2023.
 //
 
 import Foundation
