@@ -1,5 +1,5 @@
 //
-//  UserRepository+CoreData.swift
+//  UserRepository.swift
 //  LydiaExercice
 //
 //  Created by Stephen Sement on 28/03/2023.
@@ -8,10 +8,25 @@
 import Foundation
 import CoreData
 
-extension UserRepository {
+protocol UserLocalRepositoryProtocol {
+    func saveUsersToPersistence(newUsers: [User])
+    func loadUsersFromPersistence() -> [User]
+    func purgeUsersFromPersistence()
+    func saveSeedToPersistence(seed: String)
+    func loadSeedFromPersistence() -> String?
+    func purgeSeedFromPersistence()
+}
 
+final class UserLocalRepository: UserLocalRepositoryProtocol {
+    
+    private let repositoryManagement: LocalRepositoryManagement
+    
+    init(repositoryManagement: LocalRepositoryManagement = LocalRepositoryManagement()) {
+        self.repositoryManagement = repositoryManagement
+    }
+    
     func saveUsersToPersistence(newUsers: [User]) {
-        guard let context = getContext() else { return }
+        guard let context = repositoryManagement.getContext(.background) else { return }
         
         context.perform {
             do {
@@ -43,7 +58,7 @@ extension UserRepository {
     }
     
     func loadUsersFromPersistence() -> [User] {
-        guard let context = getContext() else { return [] }
+        guard let context = repositoryManagement.getContext(.main) else { return [] }
         
         return context.performAndWait {
             let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
@@ -59,7 +74,7 @@ extension UserRepository {
     }
     
     func purgeUsersFromPersistence() {
-        guard let context = getContext() else {
+        guard let context = repositoryManagement.getContext(.background) else {
             return
         }
         
@@ -124,4 +139,6 @@ extension UserRepository {
             }
         }
     }
+    
+    
 }

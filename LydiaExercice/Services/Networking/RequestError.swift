@@ -8,30 +8,27 @@
 import Foundation
 
 enum RequestError: LocalizedError {
-    case decode
     case invalidURL
     case noResponse
     case noData
     case unauthorized
-    case unexpectedStatusCode
-    case unknown
+    case forbidden
+    case unexpectedStatusCode(statusCode: Int)
     
     var errorDescription: String? {
         switch self {
-        case .decode:
-            return "Decode error"
         case .invalidURL:
-            return "URL is not valid"
+            return "Impossible to validate the URL"
         case .noResponse:
             return "No response from server"
         case .noData:
             return "Expected Data but got nothing"
         case .unauthorized:
             return "Unauthorized"
-        case .unexpectedStatusCode:
-            return "Unexpected status code"
-        case .unknown:
-            return "Unknown Error"
+        case .forbidden:
+            return "Forbidden"
+        case .unexpectedStatusCode(let statusCode):
+            return "Unexpected status code: \(statusCode)"
         }
     }
 }

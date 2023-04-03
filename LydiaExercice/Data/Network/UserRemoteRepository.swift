@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol UserRemoteDataSourceProtocol: AnyObject {
+protocol UserRemoteRepositoryProtocol: AnyObject {
     func fetchUsers(page: Int, seed: String) async throws -> [User]
 }
 
-class UserRemoteDataSource: UserRemoteDataSourceProtocol {
+class UserRemoteRepository: UserRemoteRepositoryProtocol {
     private let api: APIServiceable
     
     init(api: APIServiceable = APIService()) {
