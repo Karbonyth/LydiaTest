@@ -20,5 +20,5 @@ struct APIService: HTTPClient, APIServiceable {
             throw error
         }
     }
-    
+
 }
