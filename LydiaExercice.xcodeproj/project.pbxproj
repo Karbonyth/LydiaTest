@@ -15,9 +15,9 @@
 		ADA0973F29CF4C6E00A688A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA0973D29CF4C6E00A688A1 /* LaunchScreen.storyboard */; };
 		ADA0975429CF4C6F00A688A1 /* LydiaExerciceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0975329CF4C6F00A688A1 /* LydiaExerciceUITests.swift */; };
 		ADA0975629CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0975529CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift */; };
-		ADA0976529CF4D7B00A688A1 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */; };
+		ADA0976529CF4D7B00A688A1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976429CF4D7B00A688A1 /* NetworkService.swift */; };
 		ADA0976829CF4DD000A688A1 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976729CF4DD000A688A1 /* Endpoints.swift */; };
-		ADA0976A29CF4E1F00A688A1 /* NetworkingServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976929CF4E1F00A688A1 /* NetworkingServiceable.swift */; };
+		ADA0976A29CF4E1F00A688A1 /* NetworkServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976929CF4E1F00A688A1 /* NetworkServiceable.swift */; };
 		ADA0976D29CF4E7E00A688A1 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976C29CF4E7E00A688A1 /* RequestError.swift */; };
 		ADA0977129CF503700A688A1 /* UsersResultCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977029CF503700A688A1 /* UsersResultCodable.swift */; };
 		ADA0977429CF68B900A688A1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977329CF68B900A688A1 /* UIView+Extension.swift */; };
@@ -27,29 +27,29 @@
 		ADA0977F29CF847000A688A1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977E29CF847000A688A1 /* UIColor+Extension.swift */; };
 		ADA0978129CF9E2500A688A1 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978029CF9E2500A688A1 /* ImageLoaderView.swift */; };
 		ADA0978329CFB5D700A688A1 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978229CFB5D700A688A1 /* UserDetailsVC.swift */; };
-		ADA0978829D2937B00A688A1 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978729D2937B00A688A1 /* UserRepository.swift */; };
+		ADA0978829D2937B00A688A1 /* UserLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978729D2937B00A688A1 /* UserLocalRepository.swift */; };
 		ADA0978A29D29A2200A688A1 /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978929D29A2200A688A1 /* UserListViewModelTests.swift */; };
 		ADA0978B29D29A4600A688A1 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977629CF6A2B00A688A1 /* UserListViewModel.swift */; };
 		ADA0978C29D29A4C00A688A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977929CF6B1D00A688A1 /* User.swift */; };
-		ADA0978D29D29B9B00A688A1 /* NetworkingServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976929CF4E1F00A688A1 /* NetworkingServiceable.swift */; };
-		ADA0978E29D29B9D00A688A1 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */; };
-		ADA0979329D29CAF00A688A1 /* UserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979229D29CAF00A688A1 /* UserRemoteDataSource.swift */; };
-		ADA0979429D29E6C00A688A1 /* UserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979229D29CAF00A688A1 /* UserRemoteDataSource.swift */; };
+		ADA0978D29D29B9B00A688A1 /* NetworkServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976929CF4E1F00A688A1 /* NetworkServiceable.swift */; };
+		ADA0978E29D29B9D00A688A1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976429CF4D7B00A688A1 /* NetworkService.swift */; };
+		ADA0979329D29CAF00A688A1 /* UserRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979229D29CAF00A688A1 /* UserRemoteRepository.swift */; };
+		ADA0979429D29E6C00A688A1 /* UserRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979229D29CAF00A688A1 /* UserRemoteRepository.swift */; };
 		ADA0979529D29F3400A688A1 /* UsersResultCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0977029CF503700A688A1 /* UsersResultCodable.swift */; };
 		ADA0979629D2A0CC00A688A1 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976729CF4DD000A688A1 /* Endpoints.swift */; };
 		ADA0979829D2A0F100A688A1 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0976C29CF4E7E00A688A1 /* RequestError.swift */; };
 		ADA0979A29D2A3B300A688A1 /* User+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979929D2A3B300A688A1 /* User+Entity.swift */; };
-		ADA0979C29D2A57500A688A1 /* UserRepository+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979B29D2A57500A688A1 /* UserRepository+CoreData.swift */; };
-		ADA0979D29D2A58F00A688A1 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978729D2937B00A688A1 /* UserRepository.swift */; };
+		ADA0979D29D2A58F00A688A1 /* UserLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0978729D2937B00A688A1 /* UserLocalRepository.swift */; };
 		ADA0979F29D46C3A00A688A1 /* UserListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979E29D46C3A00A688A1 /* UserListErrorView.swift */; };
 		ADA097A129D4902D00A688A1 /* UserDetailsBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097A029D4902D00A688A1 /* UserDetailsBoxView.swift */; };
 		ADA097A329D49D0600A688A1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097A229D49D0600A688A1 /* String+Extension.swift */; };
 		ADA097A729D49E2F00A688A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ADA097A929D49E2F00A688A1 /* Localizable.strings */; };
-		ADA097AD29D4ADA000A688A1 /* RepositoryManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */; };
-		ADA097AF29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AE29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift */; };
-		ADA097B029D4AEAA00A688A1 /* RepositoryManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */; };
+		ADA097AD29D4ADA000A688A1 /* LocalRepositoryManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AC29D4ADA000A688A1 /* LocalRepositoryManagement.swift */; };
+		ADA097B029D4AEAA00A688A1 /* LocalRepositoryManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097AC29D4ADA000A688A1 /* LocalRepositoryManagement.swift */; };
 		ADA097B229D4B75C00A688A1 /* UserResultCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA097B129D4B75C00A688A1 /* UserResultCodableTests.swift */; };
 		ADA097B429D4BA4D00A688A1 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = ADA097B329D4BA4D00A688A1 /* TestData.json */; };
+		ADA0981A29DA925200A688A1 /* LydiaExercice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADA0973829CF4C6800A688A1 /* LydiaExercice.xcdatamodeld */; };
+		ADA0981B29DA930A00A688A1 /* User+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0979929D2A3B300A688A1 /* User+Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,9 +82,9 @@
 		ADA0974F29CF4C6F00A688A1 /* LydiaExerciceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LydiaExerciceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA0975329CF4C6F00A688A1 /* LydiaExerciceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceUITests.swift; sourceTree = "<group>"; };
 		ADA0975529CF4C6F00A688A1 /* LydiaExerciceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LydiaExerciceUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		ADA0976429CF4D7B00A688A1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		ADA0976729CF4DD000A688A1 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
-		ADA0976929CF4E1F00A688A1 /* NetworkingServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingServiceable.swift; sourceTree = "<group>"; };
+		ADA0976929CF4E1F00A688A1 /* NetworkServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceable.swift; sourceTree = "<group>"; };
 		ADA0976C29CF4E7E00A688A1 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		ADA0977029CF503700A688A1 /* UsersResultCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResultCodable.swift; sourceTree = "<group>"; };
 		ADA0977329CF68B900A688A1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -94,19 +94,17 @@
 		ADA0977E29CF847000A688A1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		ADA0978029CF9E2500A688A1 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
 		ADA0978229CFB5D700A688A1 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
-		ADA0978729D2937B00A688A1 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		ADA0978729D2937B00A688A1 /* UserLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalRepository.swift; sourceTree = "<group>"; };
 		ADA0978929D29A2200A688A1 /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
-		ADA0979229D29CAF00A688A1 /* UserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSource.swift; sourceTree = "<group>"; };
+		ADA0979229D29CAF00A688A1 /* UserRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteRepository.swift; sourceTree = "<group>"; };
 		ADA0979929D2A3B300A688A1 /* User+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Entity.swift"; sourceTree = "<group>"; };
-		ADA0979B29D2A57500A688A1 /* UserRepository+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserRepository+CoreData.swift"; sourceTree = "<group>"; };
 		ADA0979E29D46C3A00A688A1 /* UserListErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListErrorView.swift; sourceTree = "<group>"; };
 		ADA097A029D4902D00A688A1 /* UserDetailsBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsBoxView.swift; sourceTree = "<group>"; };
 		ADA097A229D49D0600A688A1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		ADA097A429D49DF700A688A1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		ADA097AA29D49E3100A688A1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ADA097AB29D49EBD00A688A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManagement.swift; sourceTree = "<group>"; };
-		ADA097AE29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryManagement+CoreData.swift"; sourceTree = "<group>"; };
+		ADA097AC29D4ADA000A688A1 /* LocalRepositoryManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepositoryManagement.swift; sourceTree = "<group>"; };
 		ADA097B129D4B75C00A688A1 /* UserResultCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResultCodableTests.swift; sourceTree = "<group>"; };
 		ADA097B329D4BA4D00A688A1 /* TestData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,7 +163,7 @@
 				ADA0977529CF6A0E00A688A1 /* ViewModels */,
 				ADA0977829CF6B1100A688A1 /* Models */,
 				ADA0979029D29C8B00A688A1 /* Data */,
-				ADA0976229CF4D1A00A688A1 /* Services */,
+				ADA0976229CF4D1A00A688A1 /* Infrastructure */,
 				ADA0972F29CF4C6800A688A1 /* AppDelegate.swift */,
 				ADA0973129CF4C6800A688A1 /* SceneDelegate.swift */,
 				ADA0973B29CF4C6E00A688A1 /* Assets.xcassets */,
@@ -196,39 +194,23 @@
 			path = LydiaExerciceUITests;
 			sourceTree = "<group>";
 		};
-		ADA0976229CF4D1A00A688A1 /* Services */ = {
+		ADA0976229CF4D1A00A688A1 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				ADA0976329CF4D2000A688A1 /* Networking */,
+				ADA0976329CF4D2000A688A1 /* Network */,
 			);
-			path = Services;
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
-		ADA0976329CF4D2000A688A1 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				ADA0976B29CF4E7000A688A1 /* Enums */,
-				ADA0976629CF4DC400A688A1 /* Protocols */,
-				ADA0976429CF4D7B00A688A1 /* NetworkingService.swift */,
-				ADA0976929CF4E1F00A688A1 /* NetworkingServiceable.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		ADA0976629CF4DC400A688A1 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				ADA0976729CF4DD000A688A1 /* Endpoints.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		ADA0976B29CF4E7000A688A1 /* Enums */ = {
+		ADA0976329CF4D2000A688A1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				ADA0976C29CF4E7E00A688A1 /* RequestError.swift */,
+				ADA0976729CF4DD000A688A1 /* Endpoints.swift */,
+				ADA0976429CF4D7B00A688A1 /* NetworkService.swift */,
+				ADA0976929CF4E1F00A688A1 /* NetworkServiceable.swift */,
 			);
-			path = Enums;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		ADA0976E29CF4E9200A688A1 /* ViewControllers */ = {
@@ -287,22 +269,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		ADA0978629D2936B00A688A1 /* Repositories */ = {
+		ADA0978629D2936B00A688A1 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				ADA097AC29D4ADA000A688A1 /* RepositoryManagement.swift */,
-				ADA097AE29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift */,
-				ADA0978729D2937B00A688A1 /* UserRepository.swift */,
-				ADA0979B29D2A57500A688A1 /* UserRepository+CoreData.swift */,
+				ADA097AC29D4ADA000A688A1 /* LocalRepositoryManagement.swift */,
+				ADA0978729D2937B00A688A1 /* UserLocalRepository.swift */,
 			);
-			path = Repositories;
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		ADA0979029D29C8B00A688A1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				ADA0979129D29C9800A688A1 /* Network */,
-				ADA0978629D2936B00A688A1 /* Repositories */,
+				ADA0978629D2936B00A688A1 /* Persistence */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -310,7 +290,7 @@
 		ADA0979129D29C9800A688A1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				ADA0979229D29CAF00A688A1 /* UserRemoteDataSource.swift */,
+				ADA0979229D29CAF00A688A1 /* UserRemoteRepository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -459,21 +439,19 @@
 				ADA0976D29CF4E7E00A688A1 /* RequestError.swift in Sources */,
 				ADA0977D29CF70D800A688A1 /* UserCell.swift in Sources */,
 				ADA0977729CF6A2B00A688A1 /* UserListViewModel.swift in Sources */,
-				ADA0979329D29CAF00A688A1 /* UserRemoteDataSource.swift in Sources */,
+				ADA0979329D29CAF00A688A1 /* UserRemoteRepository.swift in Sources */,
 				ADA0978129CF9E2500A688A1 /* ImageLoaderView.swift in Sources */,
-				ADA097AF29D4ADD000A688A1 /* RepositoryManagement+CoreData.swift in Sources */,
-				ADA0976529CF4D7B00A688A1 /* NetworkingService.swift in Sources */,
+				ADA0976529CF4D7B00A688A1 /* NetworkService.swift in Sources */,
 				ADA097A129D4902D00A688A1 /* UserDetailsBoxView.swift in Sources */,
 				ADA0973429CF4C6800A688A1 /* UserListVC.swift in Sources */,
-				ADA0978829D2937B00A688A1 /* UserRepository.swift in Sources */,
+				ADA0978829D2937B00A688A1 /* UserLocalRepository.swift in Sources */,
 				ADA0973A29CF4C6900A688A1 /* LydiaExercice.xcdatamodeld in Sources */,
-				ADA097AD29D4ADA000A688A1 /* RepositoryManagement.swift in Sources */,
+				ADA097AD29D4ADA000A688A1 /* LocalRepositoryManagement.swift in Sources */,
 				ADA0973029CF4C6800A688A1 /* AppDelegate.swift in Sources */,
 				ADA0977F29CF847000A688A1 /* UIColor+Extension.swift in Sources */,
 				ADA097A329D49D0600A688A1 /* String+Extension.swift in Sources */,
 				ADA0977129CF503700A688A1 /* UsersResultCodable.swift in Sources */,
-				ADA0976A29CF4E1F00A688A1 /* NetworkingServiceable.swift in Sources */,
-				ADA0979C29D2A57500A688A1 /* UserRepository+CoreData.swift in Sources */,
+				ADA0976A29CF4E1F00A688A1 /* NetworkServiceable.swift in Sources */,
 				ADA0976829CF4DD000A688A1 /* Endpoints.swift in Sources */,
 				ADA0978329CFB5D700A688A1 /* UserDetailsVC.swift in Sources */,
 				ADA0977429CF68B900A688A1 /* UIView+Extension.swift in Sources */,
@@ -488,18 +466,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADA0979D29D2A58F00A688A1 /* UserRepository.swift in Sources */,
+				ADA0979D29D2A58F00A688A1 /* UserLocalRepository.swift in Sources */,
 				ADA0978C29D29A4C00A688A1 /* User.swift in Sources */,
 				ADA0979529D29F3400A688A1 /* UsersResultCodable.swift in Sources */,
 				ADA097B229D4B75C00A688A1 /* UserResultCodableTests.swift in Sources */,
 				ADA0978B29D29A4600A688A1 /* UserListViewModel.swift in Sources */,
 				ADA0979629D2A0CC00A688A1 /* Endpoints.swift in Sources */,
-				ADA0979429D29E6C00A688A1 /* UserRemoteDataSource.swift in Sources */,
+				ADA0979429D29E6C00A688A1 /* UserRemoteRepository.swift in Sources */,
 				ADA0979829D2A0F100A688A1 /* RequestError.swift in Sources */,
-				ADA0978E29D29B9D00A688A1 /* NetworkingService.swift in Sources */,
+				ADA0978E29D29B9D00A688A1 /* NetworkService.swift in Sources */,
+				ADA0981B29DA930A00A688A1 /* User+Entity.swift in Sources */,
 				ADA0978A29D29A2200A688A1 /* UserListViewModelTests.swift in Sources */,
-				ADA097B029D4AEAA00A688A1 /* RepositoryManagement.swift in Sources */,
-				ADA0978D29D29B9B00A688A1 /* NetworkingServiceable.swift in Sources */,
+				ADA0981A29DA925200A688A1 /* LydiaExercice.xcdatamodeld in Sources */,
+				ADA097B029D4AEAA00A688A1 /* LocalRepositoryManagement.swift in Sources */,
+				ADA0978D29D29B9B00A688A1 /* NetworkServiceable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

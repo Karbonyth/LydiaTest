@@ -17,16 +17,10 @@ protocol UserLocalRepositoryProtocol {
     func purgeSeedFromPersistence()
 }
 
-final class UserLocalRepository: UserLocalRepositoryProtocol {
-    
-    private let repositoryManagement: LocalRepositoryManagement
-    
-    init(repositoryManagement: LocalRepositoryManagement = LocalRepositoryManagement()) {
-        self.repositoryManagement = repositoryManagement
-    }
+class UserLocalRepository: UserLocalRepositoryProtocol {
     
     func saveUsersToPersistence(newUsers: [User]) {
-        guard let context = repositoryManagement.getContext(.background) else { return }
+        guard let context = LocalRepositoryManagement.shared.getContext(.background) else { return }
         
         context.perform {
             do {
@@ -58,7 +52,7 @@ final class UserLocalRepository: UserLocalRepositoryProtocol {
     }
     
     func loadUsersFromPersistence() -> [User] {
-        guard let context = repositoryManagement.getContext(.main) else { return [] }
+        guard let context = LocalRepositoryManagement.shared.getContext(.main) else { return [] }
         
         return context.performAndWait {
             let request: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
@@ -74,7 +68,7 @@ final class UserLocalRepository: UserLocalRepositoryProtocol {
     }
     
     func purgeUsersFromPersistence() {
-        guard let context = repositoryManagement.getContext(.background) else {
+        guard let context = LocalRepositoryManagement.shared.getContext(.background) else {
             return
         }
         
@@ -93,7 +87,7 @@ final class UserLocalRepository: UserLocalRepositoryProtocol {
     }
     
     func saveSeedToPersistence(seed: String) {
-        guard let context = getContext() else { return }
+        guard let context = LocalRepositoryManagement.shared.getContext(.background) else { return }
         
         context.perform {
             do {
@@ -107,7 +101,7 @@ final class UserLocalRepository: UserLocalRepositoryProtocol {
     }
     
     func loadSeedFromPersistence() -> String? {
-        guard let context = getContext() else { return nil }
+        guard let context = LocalRepositoryManagement.shared.getContext(.main) else { return nil }
         
         return context.performAndWait {
             let request: NSFetchRequest<SeedEntity> = SeedEntity.fetchRequest()
@@ -122,7 +116,7 @@ final class UserLocalRepository: UserLocalRepositoryProtocol {
     }
     
     func purgeSeedFromPersistence() {
-        guard let context = getContext() else {
+        guard let context = LocalRepositoryManagement.shared.getContext(.background) else {
             return
         }
         

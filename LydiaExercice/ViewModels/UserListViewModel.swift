@@ -20,9 +20,10 @@ protocol UserListDelegate: AnyObject {
     func didPurgeUsers()
 }
 
-class UserListViewModel: UserRepository {
+class UserListViewModel {
     
-    private let dataSource: UserRemoteDataSource
+    private let remoteRepository: UserRemoteRepository?
+    private let localRepository: UserLocalRepository?
     private var users: [User]
     private var currentPage = 0
     private var currentSeed = ""
@@ -35,12 +36,14 @@ class UserListViewModel: UserRepository {
     weak var delegate: UserListDelegate?
     
     init(delegate: UserListDelegate? = nil,
-         dataSource: UserRemoteDataSource = UserRemoteDataSource(),
+         remoteRepository: UserRemoteRepository? = UserRemoteRepository(),
+         localRepository: UserLocalRepository? = UserLocalRepository(),
          users: [User] = []) {
         self.delegate = delegate
-        self.dataSource = dataSource
+        self.remoteRepository = remoteRepository
+        self.localRepository = localRepository
         self.users = users
-        currentSeed = loadSeedFromPersistence() ?? generateRandomSeed()
+        currentSeed = localRepository?.loadSeedFromPersistence() ?? generateRandomSeed()
     }
     
     func getUserCount(filteredBy text: String = "") -> Int {
@@ -98,7 +101,7 @@ class UserListViewModel: UserRepository {
     func purgeData() {
         users.removeAll()
 
-        purgeUsersFromPersistence()
+        localRepository?.purgeUsersFromPersistence()
         delegate?.didPurgeUsers()
     }
     
@@ -110,7 +113,7 @@ class UserListViewModel: UserRepository {
 private extension UserListViewModel {
 
     func loadInitialUsers() {
-        self.users += loadUsersFromPersistence()
+        self.users += localRepository?.loadUsersFromPersistence() ?? []
     }
     
     func loadUsersFromRemote(newBatch: Bool) async throws {
@@ -120,14 +123,14 @@ private extension UserListViewModel {
             currentSeed = generateRandomSeed()
         }
         self.currentPage += 1
-        let newUsers = try await dataSource.fetchUsers(page: currentPage, seed: currentSeed)
-        users += newUsers
-        self.fetchedUsersCount = newUsers.count
-        saveUsersToPersistence(newUsers: newUsers)
+        let newUsers = try await remoteRepository?.fetchUsers(page: currentPage, seed: currentSeed)
+        users += newUsers ?? []
+        self.fetchedUsersCount = newUsers?.count ?? 0
+        localRepository?.saveUsersToPersistence(newUsers: newUsers ?? [])
     }
     
     func generateRandomSeed() -> String {
-        purgeSeedFromPersistence()
+        localRepository?.purgeSeedFromPersistence()
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         let length = Int.random(in: 3...6)
         var seed = ""
@@ -137,7 +140,7 @@ private extension UserListViewModel {
             seed.append(randomLetter)
         }
         
-        saveSeedToPersistence(seed: seed)
+        localRepository?.saveSeedToPersistence(seed: seed)
         return seed
     }
 }

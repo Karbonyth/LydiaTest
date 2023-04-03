@@ -1,5 +1,5 @@
 //
-//  NetworkingService.swift
+//  NetworkService.swift
 //  LydiaExercice
 //
 //  Created by Stephen Sement on 25/03/2023.

@@ -13,7 +13,8 @@ final class UserListViewModelTests: XCTestCase {
     private var viewModel: UserListViewModel?
 
     override func setUpWithError() throws {
-        viewModel = UserListViewModel(dataSource: TestingUserRemoteDataSource())
+        viewModel = UserListViewModel(remoteRepository: TestingUserRemoteRepository(),
+                                      localRepository: TestingUserLocalRepository())
     }
 
     override func tearDownWithError() throws {
@@ -104,20 +105,23 @@ final class UserListViewModelTests: XCTestCase {
     }
     
     func testFetchingUsersWithFailure() async throws {
-        let dataSource = TestingUserRemoteFailureDataSource()
+        let remoteRepository = TestingUserRemoteFailureRepository()
+        let localRepository = TestingUserLocalRepository()
         let expectation = expectation(description: "Remote Fetch Fail")
         let delegate = TestingDelegate(expectation)
-        let viewModel = UserListViewModel(delegate: delegate, dataSource: dataSource)
+        let viewModel = UserListViewModel(delegate: delegate, remoteRepository: remoteRepository, localRepository: localRepository)
 
         do {
             viewModel.fetchUsers(fetchType: .fetch(newBatch: true))
             await waitForExpectations(timeout: 5, handler: nil)
-            let _ = try await dataSource.fetchUsers(page: 0, seed: "")
+            let _ = try await remoteRepository.fetchUsers(page: 0, seed: "")
             XCTFail("Should have been an error here")
         } catch let error as RequestError {
-            XCTAssertEqual(error, RequestError.unknown)
+            XCTAssertEqual(error.localizedDescription, RequestError.noResponse.localizedDescription)
         }
     }
+    
+    // MARK: Mocks
     
     class TestingDelegate: UserListDelegate {
         
@@ -139,15 +143,26 @@ final class UserListViewModelTests: XCTestCase {
         }
     }
     
-    class TestingUserRemoteDataSource: UserRemoteDataSource {
+    class TestingUserLocalRepository: UserLocalRepository {
+        override func saveUsersToPersistence(newUsers: [User]) {}
+        override func loadUsersFromPersistence() -> [User] {
+            [UserListViewModelTests.mockedUser]
+        }
+        override func purgeUsersFromPersistence() {}
+        override func saveSeedToPersistence(seed: String) {}
+        override func loadSeedFromPersistence() -> String? { return nil }
+        override func purgeSeedFromPersistence() {}
+    }
+    
+    class TestingUserRemoteRepository: UserRemoteRepository {
         override func fetchUsers(page: Int, seed: String) async throws -> [User] {
             UserListViewModelTests.mockedUsers
         }
     }
     
-    class TestingUserRemoteFailureDataSource: UserRemoteDataSource {
+    class TestingUserRemoteFailureRepository: UserRemoteRepository {
         override func fetchUsers(page: Int, seed: String) async throws -> [User] {
-            throw RequestError.unknown
+            throw RequestError.noResponse
         }
     }
     
@@ -191,23 +206,4 @@ final class UserListViewModelTests: XCTestCase {
                                            mobilePhone: "777"))
     ]
     
-}
-
-// MARK: Mock Repository Implementation
-
-extension RepositoryManagement {
-    func getContext() -> NSManagedObjectContext? {
-        nil
-    }
-}
-
-extension UserRepository {
-    func saveUsersToPersistence(newUsers: [User]) {}
-    func loadUsersFromPersistence() -> [User] {
-        [UserListViewModelTests.mockedUser]
-    }
-    func purgeUsersFromPersistence() {}
-    func saveSeedToPersistence(seed: String) {}
-    func loadSeedFromPersistence() -> String? { return nil }
-    func purgeSeedFromPersistence() {}
 }
